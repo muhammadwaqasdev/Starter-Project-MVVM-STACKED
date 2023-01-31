@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter_app/src/services/remote/api_client.dart';
+import 'package:starter_app/src/services/remote/api_client.dart';
 
 class ApiService {
   ApiClient? _apiClient;

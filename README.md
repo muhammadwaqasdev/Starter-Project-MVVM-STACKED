@@ -2,20 +2,21 @@
 
 ## Setup
 
+### Change AppName and Package Name in pubspec.yaml
 ```bash
-dart setup/setup.dart --packageName=com.yourpackagename
+flutter clean
+flutter pub get
+flutter pub run package_rename:set
+dart setup/setup.dart --dartBundleName="starter_app"
+flutter pub get
 ```
 
-## Options
+## build releasse
 
-```shell
---packageName for package name of android/ios
---dartBundleName for dart name of linked imports & pubspec.yaml
---appName for app name on android/ios
-```
+###Dev: `flutter build apk --release --flavor dev -t lib/main_dev.dart`
 
-## Special Option to replace dart bundle name 
+###Prod: `flutter build apk --release --flavor prod -t lib/main_prod.dart`
 
-```shell
---dartBundleName="new_bundle_name,old_bundle_name"
-```
+## Build Runner Build
+
+`flutter packages pub run build_runner build`
