@@ -1,3 +1,7 @@
 import 'package:stacked/stacked.dart';
 
-class SplashViewModel extends BaseViewModel {}
+class SplashViewModel extends ReactiveViewModel {
+  init(){
+
+  }
+}

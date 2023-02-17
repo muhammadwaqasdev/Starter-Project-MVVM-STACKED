@@ -1,63 +1,30 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:starter_app/src/configs/app_setup.router.dart';
-import 'package:starter_app/src/services/local/navigation_service.dart';
-import 'package:starter_app/src/shared/spacing.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:stacked/stacked.dart';
+import 'package:starter_app/generated/assets.dart';
 import 'package:starter_app/src/base/utils/utils.dart';
+import 'package:starter_app/src/styles/app_colors.dart';
 
-class SplashView extends StatelessWidget {
+import 'splash_view_model.dart';
+
+class SplashView extends StackedView<SplashViewModel> {
   @override
-  Widget build(BuildContext context) {
+  Widget builder(BuildContext context, SplashViewModel model, Widget? child) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Nested Route Demo with Stacked",
-                style: context.appTextTheme().headline4,
-                textAlign: TextAlign.center),
-          ),
-          VerticalSpacing(10),
-          ElevatedButton(
-              onPressed: NavService.dashboard,
-              child: Text("Goto Dashboard with Root Navigator")),
-          Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(0, 0),
-                          spreadRadius: 1,
-                          blurRadius: 30,
-                          color: Colors.grey)
-                    ]),
-                width: 300,
-                height: 400,
-                child: Navigator(
-                  key: NavService.nestedNavKey,
-                  observers: [
-
-                  ], // <----- this added
-                  onGenerateRoute: (settings) {
-                    return NavService.onSplashViewGenerateRoute(
-                        settings, Routes.splashView);
-                  },
-                ),
-              ),
-            ],
-          ),
-          Spacer(),
-        ],
+      backgroundColor: AppColors.primary,
+      body: Container(
+        width: context.screenSize().width,
+        height: context.screenSize().height,
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(Assets.imagesPlaceholder250),),
+        ),
+        child: Center(child: Image.asset(Assets.imagesPlaceholder250, width: context.screenSize().width / 2,)),
       ),
     );
   }
+
+  @override
+  SplashViewModel viewModelBuilder(BuildContext context) => SplashViewModel();
+
+  @override
+  void onViewModelReady(SplashViewModel model) => model.init();
 }

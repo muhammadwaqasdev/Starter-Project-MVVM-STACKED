@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:stacked/stacked.dart';
 
-class ConnectivityService with ReactiveServiceMixin {
+class ConnectivityService with ListenableServiceMixin {
   ReactiveValue<bool> _isInternetConnected = ReactiveValue<bool>(true);
   bool get isInternetConnected => _isInternetConnected.value;
 

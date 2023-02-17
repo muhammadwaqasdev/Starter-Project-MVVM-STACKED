@@ -74,20 +74,20 @@ abstract class NetworkExceptions with _$NetworkExceptions {
             case DioErrorType.cancel:
               networkExceptions = NetworkExceptions.requestCancelled();
               break;
-            case DioErrorType.connectTimeout:
+            case DioErrorType.connectionTimeout:
               networkExceptions = NetworkExceptions.requestTimeout();
               break;
             case DioErrorType.receiveTimeout:
               networkExceptions = NetworkExceptions.sendTimeout();
               break;
-            case DioErrorType.response:
+            case DioErrorType.badResponse:
               networkExceptions =
                   NetworkExceptions.handleResponse(error.response?.statusCode);
               break;
             case DioErrorType.sendTimeout:
               networkExceptions = NetworkExceptions.sendTimeout();
               break;
-            case DioErrorType.other:
+            case DioErrorType.unknown:
               // TODO: Handle this case.
               break;
           }
