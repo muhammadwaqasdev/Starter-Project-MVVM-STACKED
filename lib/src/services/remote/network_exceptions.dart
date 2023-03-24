@@ -112,6 +112,33 @@ abstract class NetworkExceptions with _$NetworkExceptions {
     }
   }
 
+  static String getDioExceptionMessage(error) {
+    if (error is Exception) {
+      try {
+        String networkExceptions;
+        if (error is DioError) {
+          networkExceptions =
+              error.response?.data['message'] ?? "Restart Your App";
+        } else if (error is SocketException) {
+          networkExceptions = "Check you Internet Connection";
+        } else {
+          networkExceptions = "Unexpected error occurred";
+        }
+        return networkExceptions;
+      } on FormatException catch (_) {
+        return "Unexpected error occurred";
+      } catch (_) {
+        return "Unexpected error occurred";
+      }
+    } else {
+      if (error.toString().contains("is not a subtype of")) {
+        return "Unable to process the data";
+      } else {
+        return "Unexpected error occurred";
+      }
+    }
+  }
+
   static String getErrorMessage(NetworkExceptions networkExceptions) {
     var errorMessage = "";
     networkExceptions.when(notImplemented: () {

@@ -3,8 +3,9 @@ class UserModel {
   String? email;
   String? userId;
   String? phone;
+  String? token;
 
-  UserModel({this.name, this.email, this.userId, this.phone});
+  UserModel({this.name, this.email, this.userId, this.phone, this.token});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     name = json['Name'];

@@ -5,6 +5,9 @@ import 'setter.dart';
 class AppNameSetter implements Setter {
   String _gradleFilePath = "./android/app/build.gradle";
   String _xcFilePath = "./ios/Runner.xcodeproj/project.pbxproj";
+  String PATH_MANIFEST = 'android/app/src/main/AndroidManifest.xml';
+  String PATH_MANIFEST_DEBUG = 'android/app/src/debug/AndroidManifest.xml';
+  String PATH_MANIFEST_PROFILE = 'android/app/src/profile/AndroidManifest.xml';
 
   final String newAppName;
 
@@ -14,6 +17,25 @@ class AppNameSetter implements Setter {
   apply() {
     _gradleFile();
     _xcFile();
+    _menifestFile();
+  }
+
+  _menifestFile() {
+    _changeMainfAppName(PATH_MANIFEST);
+    _changeMainfAppName(PATH_MANIFEST_DEBUG);
+    _changeMainfAppName(PATH_MANIFEST_PROFILE);
+  }
+
+  Future<File?> _changeMainfAppName(String path) async {
+    File meniFile = File(path);
+    List? contentLineByLine = await meniFile.readAsLines();
+    for (var i = 0; i < contentLineByLine.length; i++) {
+      if (contentLineByLine[i].contains('android:label=')) {
+        contentLineByLine[i] = '        android:label=\"$newAppName\"';
+        break;
+      }
+    }
+    await meniFile.writeAsString(contentLineByLine.join('\n'));
   }
 
   _gradleFile() {
