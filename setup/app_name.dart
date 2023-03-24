@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'setter.dart';
 
-class AppNameSetter implements Setter{
+class AppNameSetter implements Setter {
   String _gradleFilePath = "./android/app/build.gradle";
   String _xcFilePath = "./ios/Runner.xcodeproj/project.pbxproj";
 
@@ -11,22 +11,24 @@ class AppNameSetter implements Setter{
   AppNameSetter(this.newAppName);
 
   @override
-  apply(){
+  apply() {
     _gradleFile();
     _xcFile();
   }
 
-  _gradleFile(){
+  _gradleFile() {
     File gradleFile = File(_gradleFilePath);
-    gradleFile.writeAsStringSync(gradleFile.readAsStringSync().replaceAll("FSA", newAppName));
+    gradleFile.writeAsStringSync(
+        gradleFile.readAsStringSync().replaceAll("Starter", newAppName));
     print("Done with android/app/build.gradle");
   }
 
-  _xcFile(){
+  _xcFile() {
     File gradleFile = File(_xcFilePath);
-    gradleFile.writeAsStringSync(gradleFile.readAsStringSync().replaceAll('APP_DISPLAY_NAME = "Runner', 'APP_DISPLAY_NAME = "$newAppName'));
-    gradleFile.writeAsStringSync(gradleFile.readAsStringSync().replaceAll('APP_DISPLAY_NAME = Runner', 'APP_DISPLAY_NAME = $newAppName'));
+    gradleFile.writeAsStringSync(gradleFile.readAsStringSync().replaceAll(
+        'APP_DISPLAY_NAME = "Runner', 'APP_DISPLAY_NAME = "$newAppName'));
+    gradleFile.writeAsStringSync(gradleFile.readAsStringSync().replaceAll(
+        'APP_DISPLAY_NAME = Runner', 'APP_DISPLAY_NAME = $newAppName'));
     print("Done with ios/Runner.xcodeproj");
   }
-
 }

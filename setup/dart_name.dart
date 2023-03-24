@@ -6,7 +6,7 @@ class DartNameSetter implements Setter {
   final String newDartName;
   final String oldDartName;
 
-  DartNameSetter(this.newDartName, [this.oldDartName = 'flutter_starter_app']);
+  DartNameSetter(this.newDartName, [this.oldDartName = 'starter_app']);
 
   @override
   apply() {
@@ -16,7 +16,7 @@ class DartNameSetter implements Setter {
     print("Done with Dart Name");
     int countReplacedFiles = 0;
     for (FileSystemEntity file
-    in Directory('./lib/').listSync(recursive: true)) {
+        in Directory('./lib/').listSync(recursive: true)) {
       if (file.path.split(".").last == "dart") {
         File(file.path).writeAsStringSync(File(file.path)
             .readAsStringSync()

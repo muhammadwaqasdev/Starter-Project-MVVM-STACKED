@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'setter.dart';
 
-class PackageNameSetter implements Setter{
+class PackageNameSetter implements Setter {
   String _gradleFilePath = "./android/app/build.gradle";
   String _xcFilePath = "./ios/Runner.xcodeproj/project.pbxproj";
 
@@ -11,20 +11,24 @@ class PackageNameSetter implements Setter{
   PackageNameSetter(this.newPackageName);
 
   @override
-  apply(){
+  apply() {
     _gradleFile();
     _xcFile();
   }
 
-  _gradleFile(){
+  _gradleFile() {
     File gradleFile = File(_gradleFilePath);
-    gradleFile.writeAsStringSync(gradleFile.readAsStringSync().replaceAll("com.example.flutter_starter_app", newPackageName));
+    gradleFile.writeAsStringSync(gradleFile
+        .readAsStringSync()
+        .replaceAll("com.starter.app", newPackageName));
     print("Done with android/app/build.gradle");
   }
 
-  _xcFile(){
+  _xcFile() {
     File gradleFile = File(_xcFilePath);
-    gradleFile.writeAsStringSync(gradleFile.readAsStringSync().replaceAll("com.example.flutterStarterApp", newPackageName));
+    gradleFile.writeAsStringSync(gradleFile
+        .readAsStringSync()
+        .replaceAll("com.starter.app", newPackageName));
     print("Done with ios/Runner.xcodeproj");
   }
 }
