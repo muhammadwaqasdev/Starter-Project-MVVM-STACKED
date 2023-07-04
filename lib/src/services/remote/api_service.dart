@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:starter_app/src/base/utils/utils.dart';
+import 'package:starter_app/src/base/utils/constants.dart';
 import 'package:starter_app/src/models/user.dart';
 import 'package:starter_app/src/services/remote/api_client.dart';
 import 'package:starter_app/src/services/remote/api_result.dart';
@@ -24,12 +24,12 @@ class ApiService {
         data: {"email": email, "password": password},
       );
       if (response!.statusCode != 200) {
-        context.customWarningSnack(response.message.toString());
+        Constants.customWarningSnack(response.message.toString());
         return null;
       }
       return ApiResult.success(data: UserModel.fromJson(response.data));
     } catch (e) {
-      context.customWarningSnack(
+      Constants.customWarningSnack(
           NetworkExceptions.getDioExceptionMessage(e).toString());
       return ApiResult.failure(error: NetworkExceptions.getDioException(e)!);
     }
