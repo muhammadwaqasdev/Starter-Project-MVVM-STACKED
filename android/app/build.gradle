@@ -39,7 +39,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.starter.app"
+        applicationId "com.new.package.name"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
@@ -58,13 +58,13 @@ android {
     productFlavors {
     dev {
         dimension "flavors"
-        resValue "string", "app_name", "Starter Dev"
+        resValue "string", "app_name", "app_name Dev"
         applicationIdSuffix ".dev"
         versionNameSuffix "-dev"
     }
     prod {
         dimension "flavors"
-        resValue "string", "app_name", "Starter"
+        resValue "string", "app_name", "app_name"
     }
 }
 }

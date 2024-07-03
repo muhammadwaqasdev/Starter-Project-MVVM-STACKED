@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
-import 'package:starter_app/src/models/user.dart';
+import 'package:starter/src/models/user.dart';
 
 class AuthService with ListenableServiceMixin {
   static late SharedPreferences prefs;

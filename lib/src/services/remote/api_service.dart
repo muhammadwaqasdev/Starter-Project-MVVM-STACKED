@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:starter_app/src/base/utils/constants.dart';
-import 'package:starter_app/src/models/user.dart';
-import 'package:starter_app/src/services/remote/api_client.dart';
-import 'package:starter_app/src/services/remote/api_result.dart';
-import 'package:starter_app/src/services/remote/interseptor/main_interceptor.dart';
-import 'package:starter_app/src/services/remote/network_exceptions.dart';
+import 'package:starter/src/base/utils/constants.dart';
+import 'package:starter/src/models/user.dart';
+import 'package:starter/src/services/remote/api_client.dart';
+import 'package:starter/src/services/remote/api_result.dart';
+import 'package:starter/src/services/remote/interseptor/main_interceptor.dart';
+import 'package:starter/src/services/remote/network_exceptions.dart';
 
 class ApiService {
   ApiClient? _apiClient;

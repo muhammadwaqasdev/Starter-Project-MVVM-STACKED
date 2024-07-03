@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:starter_app/generated/assets.dart';
-import 'package:starter_app/src/base/utils/utils.dart';
-import 'package:starter_app/src/styles/app_colors.dart';
+import 'package:starter/generated/assets.dart';
+import 'package:starter/src/base/utils/utils.dart';
+import 'package:starter/src/styles/app_colors.dart';
 
 import 'splash_view_model.dart';
 

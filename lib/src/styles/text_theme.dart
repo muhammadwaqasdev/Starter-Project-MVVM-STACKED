@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starter_app/src/styles/app_colors.dart';
+import 'package:starter/src/styles/app_colors.dart';
 
 class TextStyling {
   TextStyling._();

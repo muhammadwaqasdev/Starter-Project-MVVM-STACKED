@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:starter_app/src/styles/app_colors.dart';
-import 'package:starter_app/src/styles/text_theme.dart';
+import 'package:starter/src/styles/app_colors.dart';
+import 'package:starter/src/styles/text_theme.dart';
 
 class Constants {
   Constants._();
 
-  static String get appTitle => "Flutter Starter App";
+  static String get appTitle => "Flutter App_Name App";
 
   static customErrorSnack(String? msg, {String? title}) {
     Get.snackbar(

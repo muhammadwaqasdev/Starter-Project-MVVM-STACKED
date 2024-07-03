@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:starter_app/src/base/utils/constants.dart';
-import 'package:starter_app/src/configs/go_router.dart';
-import 'package:starter_app/src/styles/app_colors.dart';
+import 'package:starter/src/base/utils/constants.dart';
+import 'package:starter/src/configs/go_router.dart';
+import 'package:starter/src/styles/app_colors.dart';
 
 class AppView extends StatelessWidget {
   // This widget is the root of your application.

@@ -6,7 +6,7 @@
 ```bash
 flutter clean
 flutter pub get
-dart setup/setup.dart --packageName=com.starter.project --dartBundleName=starter --appName=Starter
+flutter pub run change_app_package_name:main com.new.package.name
 flutter pub get
 ```
 ### Note: After Project Configured Remove setup Folder

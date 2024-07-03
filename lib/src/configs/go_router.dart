@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:starter_app/src/views/splash/splash_view.dart';
+import 'package:starter/src/views/splash/splash_view.dart';
 
 class NewGoRoute {
   static const splashView = '/';

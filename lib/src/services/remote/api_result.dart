@@ -1,4 +1,4 @@
-import 'package:starter_app/src/services/remote/network_exceptions.dart';
+import 'package:starter/src/services/remote/network_exceptions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'api_result.freezed.dart';
