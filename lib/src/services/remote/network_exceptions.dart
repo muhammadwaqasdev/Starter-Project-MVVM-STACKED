@@ -69,26 +69,32 @@ abstract class NetworkExceptions with _$NetworkExceptions {
     if (error is Exception) {
       try {
         NetworkExceptions? networkExceptions;
-        if (error is DioError) {
+        if (error is DioException) {
           switch (error.type) {
-            case DioErrorType.cancel:
+            case DioExceptionType.cancel:
               networkExceptions = NetworkExceptions.requestCancelled();
               break;
-            case DioErrorType.connectionTimeout:
+            case DioExceptionType.connectionTimeout:
               networkExceptions = NetworkExceptions.requestTimeout();
               break;
-            case DioErrorType.receiveTimeout:
+            case DioExceptionType.receiveTimeout:
               networkExceptions = NetworkExceptions.sendTimeout();
               break;
-            case DioErrorType.badResponse:
+            case DioExceptionType.badResponse:
               networkExceptions =
                   NetworkExceptions.handleResponse(error.response?.statusCode);
               break;
-            case DioErrorType.sendTimeout:
+            case DioExceptionType.sendTimeout:
               networkExceptions = NetworkExceptions.sendTimeout();
               break;
-            case DioErrorType.unknown:
-              // TODO: Handle this case.
+            case DioExceptionType.badCertificate:
+              networkExceptions = NetworkExceptions.badRequest();
+              break;
+            case DioExceptionType.connectionError:
+              networkExceptions = NetworkExceptions.noInternetConnection();
+              break;
+            case DioExceptionType.unknown:
+              networkExceptions = NetworkExceptions.badRequest();
               break;
           }
         } else if (error is SocketException) {
@@ -116,7 +122,7 @@ abstract class NetworkExceptions with _$NetworkExceptions {
     if (error is Exception) {
       try {
         String networkExceptions;
-        if (error is DioError) {
+        if (error is DioException) {
           networkExceptions =
               error.response?.data['message'] ?? "Restart Your App";
         } else if (error is SocketException) {
